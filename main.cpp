@@ -43,14 +43,23 @@ void TestFFT(const size_t numbers) {
         LOG_DURATION("FFT_standart");
         FFT(data);
     }
+    {
+        LOG_DURATION("iFFT_standart");
+        iFFT(data);
+    }
+
 
     {
         LOG_DURATION("FFT_async");
-        FFT_acync(data);
+        FFT_async(data);
+    }
+    {
+        LOG_DURATION("iFFT_async");
+        iFFT_async(data);
     }
 }
 
 int main() {
-    TestFFT(200000);
+    TestFFT(500000);
     return 0;
 }
