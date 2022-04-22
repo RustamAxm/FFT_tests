@@ -8,6 +8,7 @@
 #include <future>
 #include <execution>
 #include <valarray>
+#include <vector>
 
 const double PI = 3.14159265;
 const int MAX_DEPTH = 8;
