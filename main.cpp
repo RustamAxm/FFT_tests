@@ -36,30 +36,45 @@ void TestFFT(const size_t numbers) {
     for (size_t i = 0; i < test_vector.size(); ++i) {
         test[i] = test_vector[i];
     }
-
     CArray data(test, test_vector.size());
 
+    CVector data_for_vec;
+    for (size_t i = 0; i < test_vector.size(); ++i) {
+        data_for_vec.push_back(test_vector[i]);
+    }
+
     {
-        LOG_DURATION("FFT_standart");
+        LOG_DURATION_STREAM("FFT_standart", cerr);
         FFT(data);
     }
+//    PrintRange(begin(data), end(data));
     {
         LOG_DURATION("iFFT_standart");
         iFFT(data);
     }
 
-
     {
         LOG_DURATION("FFT_async");
         FFT_async(data);
     }
+
     {
         LOG_DURATION("iFFT_async");
         iFFT_async(data);
     }
+
+    {
+        LOG_DURATION_STREAM("FFT_standart_vector", cerr);
+        FFT_vector(data_for_vec);
+    }
+
+    {
+        LOG_DURATION_STREAM("FFT_async_vector", cerr);
+        FFT_async_vec(data_for_vec);
+    }
 }
 
 int main() {
-    TestFFT(500000);
+    TestFFT(pow(2, 18));
     return 0;
 }

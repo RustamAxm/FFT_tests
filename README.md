@@ -21,3 +21,18 @@ iFFT_standart: 434 ms
 FFT_async: 151 ms
 
 iFFT_async: 177 ms
+
+### vector implementation 
+262144
+
+FFT_standart: 233 ms
+
+iFFT_standart: 243 ms
+
+FFT_async: 90 ms
+
+iFFT_async: 113 ms
+
+FFT_standart_vector: 283 ms
+
+FFT_async_vector: 71 ms
